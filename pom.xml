@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>crw-app</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+	<groupId>org.apache.maven.plugins</groupId>
+        <version>3.1.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+	  <compilerArgument>-Xlint:unchecked</compilerArgument>
+	  <encoding>UTF-8</encoding>
+	  <release>11</release>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.8.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+	  <encoding>UTF-8</encoding>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.2.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.0.0-M5</version>
+      </plugin>
+      <plugin>
+        <artifactId>quarkus-maven-plugin</artifactId>
+	<groupId>${quarkus.groupId}</groupId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+              <goal>generate-code</goal>
+              <goal>generate-code-tests</goal>
+            </goals>
+          </execution>
+        </executions> 
+        <extensions>true</extensions>
+	<version>${quarkus.version}</version>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+	<directory>src/main/resources</directory>
+	<excludes>
+	  <exclude>README.md</exclude>
+	</excludes>
+      </resource>
+      <resource>
+	<directory>src/test/resources</directory>
+	<excludes>
+	  <exclude>README.md</exclude>
+	</excludes>
+      </resource>
+    </resources>
+  </build>
+  <dependencies>
+    <!-- <dependency> -->
+    <!--   <groupId>io.quarkus</groupId> -->
+    <!--   <artifactId>quarkus-junit5</artifactId> -->
+    <!--   <scope>test</scope> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!--   <groupId>io.rest-assured</groupId> -->
+    <!--   <artifactId>rest-assured</artifactId> -->
+    <!--   <scope>test</scope> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!--   <groupId>io.quarkus</groupId> -->
+    <!--   <artifactId>quarkus-openshift</artifactId> -->
+    <!-- </dependency> -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <!-- <dependency> -->
+    <!--   <groupId>io.quarkus</groupId> -->
+    <!--   <artifactId>quarkus-smallrye-health</artifactId> -->
+    <!-- </dependency> -->
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <scope>provided</scope>
+      <version>1.18.22</version>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>quarkus-bom</artifactId>
+        <groupId>${quarkus.groupId}</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${quarkus.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <description>Simple Quarkus app</description>
+  <developers>
+    <developer>
+      <id>agbaroni</id>
+      <name>Alessio G. Baroni</name>
+      <email>alessiogiovanni.baroni@gmail.com</email>
+      <url>https://github.com/agbaroni</url>
+      <timezone>Europe/Rome</timezone>
+    </developer>
+  </developers>
+  <groupId>io.github.agbaroni</groupId>
+  <inceptionYear>2022</inceptionYear>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/agbaroni/crw-app/issues</url>
+  </issueManagement>
+  <licenses>
+    <license>
+      <distribution>repo</distribution>
+      <name>GNU General Public License v3.0 or later</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+    </license>
+  </licenses>
+  <modelVersion>4.0.0</modelVersion> 
+  <name>Simple Quarkus application</name>
+  <packaging>jar</packaging>
+  <properties>
+    <quarkus.groupId>com.redhat.quarkus.platform</quarkus.groupId>
+    <quarkus.version>2.2.3.Final-redhat-00013</quarkus.version>
+  </properties>
+  <scm>
+    <connection>scm:git:git@github.com:agbaroni/crw-app.git</connection>
+    <developerConnection>scm:git:https://github.com/agbaroni/crw-app.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/agbaroni/crw-app</url>
+  </scm>
+  <url>https://github.com/agbaroni/crw-app.git</url>
+  <version>0.1.0-SNAPSHOT</version> 
+</project>
