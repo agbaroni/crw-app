@@ -39,7 +39,7 @@ public class Account implements Serializable {
     private String password;
 
     @Getter
-    @JoinColumn(name = "USER")
+    @JoinColumn(name = "USER_")
     @ManyToOne
     @Setter
     private User user;
