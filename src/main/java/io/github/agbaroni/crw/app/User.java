@@ -50,6 +50,7 @@ public class User implements Serializable {
     private int version;
 
     @Getter
+    @JsonbTransient
     @OneToMany(mappedBy = "user")
     @Setter
     private Set<Account> accounts;
